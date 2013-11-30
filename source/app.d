@@ -17,5 +17,7 @@ shared static this()
 	router.get("/index.html",
 		(req,res){return res.redirect("/frame/eintragen.html");});
 	router.get("/frame/eintragen.html",staticTemplate!("eintragen.dt"));
+
+
 	listenHTTP(settings, router);
 }
