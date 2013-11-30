@@ -1,40 +1,41 @@
 !!! transitional
 html(xmlns='http://www.w3.org/1999/xhtml')
-head
+  head
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     title  Hektarertrags Rechner v0.1
   body
-    h1
-      | Hektarertrags Rechner v0.1
+    h1 Hektarertrags Rechner v0.1
     br
     form#form1(name='form1', method='post', action='tabelle.html')
       label(for='menge') Menge
       input#menge(name='textfield', type='text')
       | Liter
       p
-        label(for='rebsorte') Rebsorte
-        input#rebsorte(type='text', name='rebsorte')
+      label(for='rebsorte') Rebsorte
+      input#rebsorte(type='text', name='rebsorte')
       p
-        label(for='qualitaet') Qualität
-        select#qualitaet(name='qualitaet', size='1')
-          option(value='QW') Qualitätswein
-          option(value='SP') Spätlese 
-          option(value='AL') Auslese
-          option(value='BA') Beerenauslese
-          option(value='KA') Kabinett
-          option(value='EW') Eiswein
-          option(value='TA') Trockenbeerenauslese
-          option(value='RH') Riesling Hochgewächs
+      label(for='qualitaet') Qualität
+      select#qualitaet(name='qualitaet', size='1')
+        option(value='QW') Qualitätswein
+        option(value='SP') Spätlese 
+        option(value='AL') Auslese
+        option(value='BA') Beerenauslese
+        option(value='KA') Kabinett
+        option(value='EW') Eiswein
+        option(value='TA') Trockenbeerenauslese
+        option(value='RH') Riesling Hochgewächs
       p
-        label(for='einstufung') Einstufung   
-        select#einstufung(name='einstufung', size='1')
-          option(value='QW') Qualitätswein
-          option(value='LW') Landwein 
-          option(value='AL') Deutscher Wein
-          option(value='BA') Grundwein
-          option(value='--') ------------
-          option(value='EM') Erntemenge
-          option(value='DM') Destilationsmenge
-    input(name='Eintragen', type='button', value='eintragen')
-    br
-    p  © 2013 by Stefan Koch  
+      label(for='einstufung') Einstufung   
+      select#einstufung(name='einstufung', size='1')
+        option(value='QW') Qualitätswein
+        option(value='LW') Landwein 
+        option(value='DW') Deutscher Wein
+        option(value='GW') Grundwein
+        option(value='--') ------------
+        option(value='EM') Erntemenge
+        option(value='DM')
+          | Destilationsmenge
+      p
+        input(name='Eintragen', type='button', value='eintragen')
+      p  © 2013 by Stefan Koch  
+
