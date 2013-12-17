@@ -21,7 +21,7 @@ struct wine {
 		Landwein="LW",
 		Deutscher_Wein="DW",
 		Grundwein="GW",
-		///////////////////
+		//_Seperator//
 		Erntemenge="EM", 
 		Destilationsmenge="DM"
 	}

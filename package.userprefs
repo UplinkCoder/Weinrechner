@@ -1,0 +1,19 @@
+﻿<Properties GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="source.diff">
+    <Files>
+      <File FileName="source\app.d" Line="1" Column="1" />
+      <File FileName="package.json" Line="10" Column="2" />
+      <File FileName="source\app.d" Line="21" Column="2" />
+      <File FileName="views\eintragen.dt" Line="16" Column="36" />
+      <File FileName="source\Wine-db.d" Line="1" Column="20" />
+      <File FileName="herktarertragsregelungswerte.d" Line="5" Column="11" />
+      <File FileName="source.diff" Line="29" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <AuthorInfo Name="Stefan Koch" Email="" Copyright="Stefan Koch 2013" Company="" Trademark="" />
+</Properties>
