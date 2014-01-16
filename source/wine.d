@@ -1,16 +1,17 @@
 ﻿module source.wine;
 
-struct wine {
+struct Wine {
 	string name;
-	int menge;
-	string qualitaet;
-	string einstufung;
+	int amount;
+	string quality;
+	string grouping;
+	int tank;
 	@disable this();
 	this(string nme,int mng,string quali,string einstf) {
 	name=nme;
-	menge=mng;
-	qualitaet=quali;
-	einstufung = einstf;
+	amount=mng;
+	quality=quali;
+	grouping = einstf;
 	}
 }
 enum QualitätEnum:string {

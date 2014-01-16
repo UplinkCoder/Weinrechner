@@ -1,7 +1,7 @@
 module source.app;
 
 import vibe.d;
-import source.wine:wine;
+import source.wine:Wine;
 
 void handleRequest(HTTPServerRequest req,
                    HTTPServerResponse res)
@@ -14,7 +14,7 @@ void showTable (HTTPServerRequest req,
 	// OpenDataBase
 	// fetch all wines
 	// put it into an array
-	wine[] wines;
+	Wine[] wines;
 	res.render!("tabelle.td",wines);
 }
 shared static this()
@@ -25,7 +25,7 @@ shared static this()
 	router.get("/", (req,res){return res.redirect("/index.html");});
 	router.get("/tabelle.html",&showTable);
 	router.get("/index.html",
-		(req,res){return res.redirect("/frame/eintragen.html");});
+		(req,res){return res.redirect("/tabelle.html");});
 	router.get("/frame/eintragen.html",staticTemplate!("eintragen.dt"));
 
 

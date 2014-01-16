@@ -7,7 +7,7 @@ html
     h1 Hektarertrags Rechner v0.1
     br
     p  Eingabe-Frame :
-    form#Eingabe(action='tabelle.html', method='post', name='Eingabe', target='_self')
+    form#Eingabe(action='/tabelle.html', method='post', name='Eingabe', target='_self')
       p
         label(for='menge') Menge
         input#menge(name='textfield', type='text')
