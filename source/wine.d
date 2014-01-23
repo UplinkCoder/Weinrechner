@@ -1,35 +1,43 @@
-﻿module source.wine;
+
+import utils.enumUtil:selfNameing_Enum;
+
+
+mixin(selfNameing_Enum!(wine.enums._QualitätEnum)("QualitätEnum"));
+mixin(selfNameing_Enum!(wine.enums._EinstufungEnum)("EinstufungEnum"));
+immutable static string[] FieldNames = [__traits(allMembers,Wine)];
 
 struct Wine {
-	string name;
-	int amount;
-	string quality;
-	string grouping;
-	int tank;
-	@disable this();
-	this(string nme,int mng,string quali,string einstf) {
-	name=nme;
-	amount=mng;
-	quality=quali;
-	grouping = einstf;
+;
+
+	import utils.enumUtil:selfNameing_Enum;
+public:
+	string Name;
+	double Menge;
+	string Sorte;
+	QualitätEnum Qualität;
+	EinstufungEnum Einstufung;
+	int Tank;
+}
+private: 
+struct enums {
+	private:
+enum _QualitätEnum {
+	Qualitätswein,
+		Spätlese, 
+		Auslese,
+		Beerenauslese,
+		Kabinett,
+		Eiswein,
+		Trockenbeerenauslese,
+		Riesling_Hochgewächs
+}
+enum _EinstufungEnum {
+	Qualitätswein,
+	Landwein,
+	Deutscher_Wein,
+	Grundwein,
+	///////////////////
+	Erntemenge, 
+	Destilationsmenge
 	}
 }
-enum QualitätEnum:string {
-		Qualitätswein="QW",
-		Spätlese="SL", 
-		Auslese="AL",
-		Beerenauslese="BA",
-		Kabinett="KA",
-		Eiswein="EW",
-		Trockenbeerenauslese="TA",
-		Riesling_Hochgewächs="RH"
-	}
-enum EinstufungEnum:string {
-		Qualitätswein="QW",
-		Landwein="LW",
-		Deutscher_Wein="DW",
-		Grundwein="GW",
-		///////////////////
-		Erntemenge="EM", 
-		Destilationsmenge="DM"
-	}

@@ -4,26 +4,20 @@ html
     title Tabelle
     meta(charset='utf-8')
   body
-    table#tablle(border='1', title='Wines', summary='Tabelle der eingetragenen Weine')
-      caption
-        | Weine in Datenbank
-      tr
-        th(scope='col') Name
-        th(scope='col') Menge
-        th(scope='col') Sorte
-        th(scope='col') Qualitaet
-        th(scope='col') Einstufung
-        th(scope='col') Tank
-      
-      -foreach(wine;wines) with (wine)
-        tr
-          td a(href='tabelle.html?edit=#{name}') #{name}
-          td #{amount} L
-          td #{quality}
-          td #{grouping}
-          td #{tank}
-		  
-      form#add_form(name='add', method='post', action='_self')
+    form#neuer_eintrag(method='post', name='neuer_eintrag', action='/tabelle.html')
+      table#tablle(border='1', title='Wines')
+        caption
+          | Weine in Datenbank
+        tr#captions
+          -foreach(fieldName;FieldNames)
+            th(scope='col') #{fieldName}
+        
+        -foreach(wine;wines)
+          tr
+            -auto tuple = wine.tupleof;
+              -foreach (col;tuple)
+                td #{col}
+                   
         tr
           td
             input#name(name='name', type='text')
@@ -32,7 +26,7 @@ html
           td
             input#rebsorte(type='text', name='rebsorte')
           td
-            select#qualitaet(name='qualitaet', size='1')
+            select#qualitaet(name='qulität', size='1')
               option(value='QW') Qualitätswein
               option(value='SP') Spätlese 
               option(value='AL') Auslese
@@ -43,12 +37,14 @@ html
               option(value='RH') Riesling Hochgewächs
           td
             select#einstufung(name='einstufung', size='1')
-              option(value='QW') Qualitätswein
-              option(value='LW') Landwein 
-              option(value='AL') Deutscher Wein
-              option(value='BA') Grundwein
-              option(value='--') ------------
-              option(value='EM') Erntemenge
-              option(value='DM') Destilationsmenge
+              option(value='Qualitätswein') Qualitätswein
+              option(value='Landwein') Landwein 
+              option(value='Deutscher Wein') Deutscher Wein
+              option(value='Grundwein') Grundwein
+              option(disabled='disabled') ------------
+              option(value='Erntemenge') Erntemenge
+              option(value='Destilationsmenge') Destilationsmenge
           td
             input#tank(name='textfield', type='text', maxlength='2')
+      hr
+      input(name='eintragen', type='submit', value='Eintragen')
