@@ -2,14 +2,33 @@
 import utils.enumUtil:selfNameing_Enum;
 
 
-mixin(selfNameing_Enum!(wine.enums._QualitätEnum)("QualitätEnum"));
-mixin(selfNameing_Enum!(wine.enums._EinstufungEnum)("EinstufungEnum"));
+
 immutable static string[] FieldNames = [__traits(allMembers,Wine)];
 
-struct Wine {
-;
+enum EinstufungEnum {
+	Qualitätswein="QW",
+	Landwein="LW",
+	Deutscher_Wein="DW",
+	Grundwein="GW",
+	__sep__="",
+	Erntemenge="EM",
+	Destilationsmenge="DM"
+	} 
 
-	import utils.enumUtil:selfNameing_Enum;
+
+enum QualitätEnum {
+	Qualitätswein="QE",
+	Spätlese="SL", 
+	Auslese="AL",
+	Beerenauslese="BA",
+	Kabinett="KA",
+	Eiswein="EW",
+	Trockenbeerenauslese="TA",
+	Riesling_Hochgewächs="RH"
+}
+
+struct Wine {
+
 public:
 	string Name;
 	double Menge;
@@ -21,23 +40,5 @@ public:
 private: 
 struct enums {
 	private:
-enum _QualitätEnum {
-	Qualitätswein,
-		Spätlese, 
-		Auslese,
-		Beerenauslese,
-		Kabinett,
-		Eiswein,
-		Trockenbeerenauslese,
-		Riesling_Hochgewächs
-}
-enum _EinstufungEnum {
-	Qualitätswein,
-	Landwein,
-	Deutscher_Wein,
-	Grundwein,
-	///////////////////
-	Erntemenge, 
-	Destilationsmenge
-	}
+
 }

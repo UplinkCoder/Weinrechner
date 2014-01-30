@@ -2,6 +2,7 @@ module source.app;
 
 import vibe.d;
 import std.utf;
+import json_db;
 import wine;
 import utils.enumUtil;
 import FormCreator;
@@ -17,13 +18,10 @@ void showTable (HTTPServerRequest req,
 	// OpenDataBase
 	// fetch all wines
 	// put it into an array
-
 	Wine[] wines;
-	wines ~= Wine("Wein1",12.06,"Rebe1",QualitätEnum.Auslese,EinstufungEnum.Qualitätswein);
-	wines ~= Wine("Wein2",14.03,"Rebe2",QualitätEnum.Beerenauslese,EinstufungEnum.Landwein);
 
-	auto ff = FormCreator.EnumToSelect!EinstufungEnum;
-	res.render!("tabelle.td",wines,FieldNames);
+	enum InputForm = PodToForm!(Wine);
+	res.stringIncludeRender!("tabelle.td",FieldNames,wines,InputForm);
 }
 shared static this()
 {
@@ -35,8 +33,8 @@ shared static this()
 	router.get("/tabelle.html",&showTable);
 	router.get("/index.html",
 		(req,res){return res.redirect("/tabelle.html");});
-	router.get("/frame/eintragen.html",staticTemplate!("eintragen.dt"));
-
+	router.get("/dyn/wine.json",&getJson);
+	
 
 	listenHTTP(settings, router);
 }

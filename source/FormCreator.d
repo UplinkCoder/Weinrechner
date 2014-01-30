@@ -6,29 +6,47 @@ enum InputTypes {
 	SelectList,
 	TextField // TODO add much more types :D
 	};
-import std.traits,std.typecons;
+import std.typecons;
 import vibe.d;
 
-auto PodToForm(Pod)() if (__traits(isPOD,Pod)) {
-	static immutable members = [__traits(derivedMembers,Pod)];
-//	auto result;
-	foreach (member;members) {
-		if (is(member==enum)) {
-			auto em = EnumMembers!member;
+auto PodToForm(Pod,string sep = "td ",string indent="\t")() if (__traits(isPOD,Pod)) {
+	enum PodTuple = Pod.init.tupleof;
 
+	string result;
+
+	foreach (i,t_member;PodTuple)
+	{	
+		static if (is(typeof(t_member):double)||
+			  (is(typeof(t_member)==string)) )
+		{
+			string Name = __traits(identifier,Pod.tupleof[i]);
+			result ~= sep~"\n"~indent~"input#"~Name~"(name='"~Name~"', type='text')\n";
+		}
+
+		else
+
+			static if (is(typeof(t_member)==enum)) 
+		{
+			result ~= EnumToSelect!(typeof(t_member),sep,indent);
 		}
 	}
+	return result;
 }
-//auto StructFieldToInput(Field)
-auto EnumToSelect(Enum)(string Name = __traits(identifier,Enum)) if (is(Enum==enum)) {
-	auto form_string = "select(name=\""~Name~"\")\n";
+
+auto EnumToSelect(Enum,string sep ="td ",string indent="\t")(string Name = __traits(identifier,Enum)) if (is(Enum==enum)) {
+	auto select_string = sep~"\n"~indent~"select#"~Name~"(name=\""~Name~"\")\n";
 	foreach (i,Item;__traits(allMembers,Enum)) {
-		if (Item == "--sep--")
-			form_string ~= "\t(disabled='option(disabled='disabled') ------------";
+		if (Item == "__sep__")
+			select_string ~= indent~indent~"(disabled='option(disabled='disabled') ------------"~"\n";
 		else
-			form_string ~= "\toption(value='"~__traits(getMember,Enum,Item)~"') "~Item~"\n";
+			select_string ~= indent~indent~"option(value='"~__traits(getMember,Enum,Item)~"') "~Item~"\n";
 	}
-	debug import std.stdio;
-	debug writeln(form_string);
+	return select_string;
+}
+auto FieldToInput(Field,string indent="\t")()
+	if (is(Field==string)||is(Field==int)||is(Field==double))
+
+{	string Name = __traits(identifier,Field.tupleof[1]);
+	auto form_string = indent~"input #"~Name~"(name='"~Name~"', type='text')";
 	return form_string;
 }
