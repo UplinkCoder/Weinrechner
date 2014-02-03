@@ -1,23 +1,22 @@
-﻿﻿!!!5
+﻿!!! 5
 html
   head
     title Tabelle
     meta(charset='utf-8')
+    script(src='static/TableHandler.js', language='javascript', type='application/javascript')
+
   body
-    form#neuer_eintrag(method='post', name='neuer_eintrag', target='_self')
-      table#tablle(border='1', title='Wines')
-        caption
-          | Weine in Datenbank
+    form#neuer_eintrag(method='post', name='neuer_eintrag', action='/tabelle.html')
+      table#Winetable(border='1', title='Wines')
+        caption Weine in Datenbank
         tr#captions
           -foreach(fieldName;FieldNames)
             th(scope='col') #{fieldName}
         
-        -foreach(wine;wines)
-          tr
-            -auto tuple = wine.tupleof;
-              -foreach (col;tuple)
-                td #{col}
+        script(type='text/javascript')
+          fetchWines();
+
         tr
           include #{InputForm}
       hr
-      input(name='eintragen', type='submit', value='Eintragen')
+      input(type='submit', value='Wein Hinzufügen')

@@ -1,18 +1,18 @@
 [
   {
-    "name":"Wein1",
-    "menge":12,
-    "rebsorte":"sorte1",
-    "qualitaet":"Auslese",
-    "einstufung":"Landwein",
-    "tank":1
+    "Name":"Wein1",
+    "Menge":12,
+    "Sorte":"sorte1",
+    "Qualität":"Auslese",
+    "Einstufung":"Landwein",
+    "Tank":1
   },
   {
-    "name":"Wein2",
-    "menge":18,
-    "rebsorte":"sorte1",
-    "qualitaet":"SpätAuslese",
-    "einstufung":"Landwein",
-    "tank":2
+    "Name":"Wein2",
+    "Menge":18,
+    "Sorte":"sorte1",
+    "Qualitaet":"SpätAuslese",
+    "Einstufung":"Landwein",
+    "Tank":2
   }
 ]

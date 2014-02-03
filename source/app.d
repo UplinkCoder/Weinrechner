@@ -15,26 +15,27 @@ void handleRequest(HTTPServerRequest req,
 void showTable (HTTPServerRequest req,
                  HTTPServerResponse res)
 {
-	// OpenDataBase
-	// fetch all wines
-	// put it into an array
-	Wine[] wines;
-
 	enum InputForm = PodToForm!(Wine);
-	res.stringIncludeRender!("tabelle.td",FieldNames,wines,InputForm);
+	logDebug(InputForm);
+	res.stringIncludeRender!("tabelle.td",FieldNames,InputForm);
 }
 shared static this()
 {
-	setLogLevel(LogLevel.info);
+	setLogLevel(LogLevel.verbose4);
 	auto settings = new HTTPServerSettings;
+
+	auto fsettings = new HTTPFileServerSettings;
+	fsettings.serverPathPrefix = "/static";
+
 	settings.port = 8080;
 	auto router = new URLRouter;
 	router.get("/", (req,res){return res.redirect("/index.html");});
 	router.get("/tabelle.html",&showTable);
 	router.get("/index.html",
 		(req,res){return res.redirect("/tabelle.html");});
-	router.get("/dyn/wine.json",&getJson);
-	
+	router.get("/wines.json",&getJson);
+	router.get("/static/TableHandler.js",serveStaticFile("./static/TableHandler.js"));
+	router.post("/tabelle.html",&putJson);
 
 	listenHTTP(settings, router);
 }

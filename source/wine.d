@@ -6,25 +6,26 @@ import utils.enumUtil:selfNameing_Enum;
 immutable static string[] FieldNames = [__traits(allMembers,Wine)];
 
 enum EinstufungEnum {
-	Qualitätswein="QW",
-	Landwein="LW",
-	Deutscher_Wein="DW",
-	Grundwein="GW",
-	__sep__="",
-	Erntemenge="EM",
-	Destilationsmenge="DM"
-	} 
+	Qualitätswein="Qualitätswein",
+	Landwein="Landwein",
+	Deutscher_Wein="Deutscher Wein",
+	Grundwein="Grundwein",
+	/*
+	Erntemenge="Erntemenge",
+	Destilationsmenge="Destilationsmenge"
+	*/
+	}
 
 
-enum QualitätEnum {
-	Qualitätswein="QE",
-	Spätlese="SL", 
-	Auslese="AL",
-	Beerenauslese="BA",
-	Kabinett="KA",
-	Eiswein="EW",
-	Trockenbeerenauslese="TA",
-	Riesling_Hochgewächs="RH"
+enum QualitaetEnum {
+	Qualitätswein="Qualitätswein",
+	Spätlese="Spätlese", 
+	Auslese="Auslese",
+	Beerenauslese="Beerenauslese",
+	Kabinett="Kabinett",
+	Eiswein="Eiswein",
+	Trockenbeerenauslese="Trockenbeerenauslese",
+	Riesling_Hochgewächs="Riesling Hochgewächs"
 }
 
 struct Wine {
@@ -33,12 +34,7 @@ public:
 	string Name;
 	double Menge;
 	string Sorte;
-	QualitätEnum Qualität;
+	QualitaetEnum Qualität;
 	EinstufungEnum Einstufung;
 	int Tank;
-}
-private: 
-struct enums {
-	private:
-
 }
