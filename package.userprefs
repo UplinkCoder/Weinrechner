@@ -1,21 +1,19 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="source\json_db.d">
+  <MonoDevelop.Ide.Workbench ActiveDocument="views\TableHandler.js">
     <Files>
       <File FileName="..\..\..\AppData\Roaming\dub\packages\ddb-master\package.json" Line="1" Column="1" />
-      <File FileName="views\tabelle.td" Line="6" Column="95" />
-      <File FileName="source\wine.d" Line="20" Column="14" />
+      <File FileName="views\tabelle.td" Line="15" Column="9" />
+      <File FileName="source\wine.d" Line="1" Column="1" />
       <File FileName="source\herktarertragsregelungswerte.d" Line="1" Column="1" />
-      <File FileName="source\json_db.d" Line="35" Column="58" />
+      <File FileName="source\json_db.d" Line="1" Column="1" />
       <File FileName="package.json" Line="1" Column="1" />
       <File FileName="..\..\..\AppData\Roaming\dub\packages\ddb-master\source\ddb\db.d" Line="1" Column="1" />
       <File FileName="..\..\..\AppData\Roaming\dub\packages\ddb-master\source\postgres.d" Line="1" Column="1" />
-      <File FileName="..\..\..\AppData\Roaming\dub\packages\ddb-master\package.json" Line="1" Column="1" />
       <File FileName="..\..\..\AppData\Roaming\dub\packages\vibe-d-0.7.18\package.json" Line="1" Column="1" />
       <File FileName="source\FormCreator.d" Line="1" Column="1" />
-      <File FileName="source\app.d" Line="37" Column="58" />
-      <File FileName="..\..\..\AppData\Roaming\dub\packages\vibe-d-0.7.18\source\vibe\http\fileserver.d" Line="65" Column="1" />
-      <File FileName="..\..\..\AppData\Roaming\dub\packages\vibe-d-0.7.18\source\vibe\templ\diet.d" Line="269" Column="45" />
+      <File FileName="source\app.d" Line="20" Column="1" />
+      <File FileName="views\TableHandler.js" Line="9" Column="48" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

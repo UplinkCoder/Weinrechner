@@ -3,9 +3,9 @@ html
   head
     title Tabelle
     meta(charset='utf-8')
-
+    script(src='static/TableHandler.js', language='javascript', type='text/javascript')
   body
-    script(src='static/TableHandler.js', language='javascript', type='application/javascript')
+   
     form#neuer_eintrag(method='post', name='neuer_eintrag', action='/tabelle.html')
       table#Winetable(border='1', title='Wines')
         caption Weine in Datenbank

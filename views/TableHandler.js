@@ -6,7 +6,7 @@ function fetchWines() {
 	//fetchTable.setRequestHeader("Content-type","application/json",true);
 	fetchTable.onreadystatechange = function() {
 		if (fetchTable.readyState == 4 && fetchTable.status == 200) {
-		var json = JSON.parse(fetchTable.response);
+		var json = JSON.parse(fetchTable.responseText);
 		addRow(fetchTable.response);	
 		}
 	}
