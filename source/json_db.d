@@ -29,3 +29,9 @@ void putJson(HTTPServerRequest req,
 
 	res.redirect("/tabelle.html");
 }
+
+void getTableHandler_js(HTTPServerRequest req,
+                        HTTPServerResponse res)
+{	static immutable ubyte[] tableHandler = cast(immutable ubyte[]) import("TableHandler.js");
+	res.writeBody(tableHandler,"text/javascript");
+}

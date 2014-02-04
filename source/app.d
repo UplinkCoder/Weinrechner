@@ -34,7 +34,7 @@ shared static this()
 	router.get("/index.html",
 		(req,res){return res.redirect("/tabelle.html");});
 	router.get("/wines.json",&getJson);
-	router.get("/static/TableHandler.js",serveStaticFile("./static/TableHandler.js"));
+	router.get("/static/TableHandler.js",&getTableHandler_js);
 	router.post("/tabelle.html",&putJson);
 
 	listenHTTP(settings, router);
