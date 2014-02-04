@@ -20,9 +20,13 @@ void putJson(HTTPServerRequest req,
 		void[] buffer = std.file.read("wines.json");
 		string str_wines_json = buffer.to!string;
 		string  formdatajson_str = "[" ~ req.form.serializeToJson.to!string ~ "]";
-		auto json = parseJson(str_wines_json) ~ parseJsonString(formdatajson_str);
-		logDebug(parseJsonString(formdatajson_str).to!string);
-		buffer = cast(ubyte[]) to!string(json);
+		if (str_wines_json != "") {  
+			str_wines_json = (parseJson(str_wines_json) ~ parseJsonString(formdatajson_str)).to!string;
+		} else {
+			str_wines_json = parseJson(formdatajson_str).to!string;
+		}
+
+		buffer = cast(ubyte[]) str_wines_json;
 		std.file.write("wines.json",buffer);
 
 	}
