@@ -17,7 +17,7 @@ void showTable (HTTPServerRequest req,
 {
 	enum InputForm = PodToForm!(Wine);
 	logDebug(InputForm);
-	res.stringIncludeRender!("tabelle.td",FieldNames,InputForm);
+	res.render!("tabelle.td",FieldNames,InputForm);
 }
 shared static this()
 {

@@ -19,7 +19,13 @@ void putJson(HTTPServerRequest req,
 	if (vibe.core.file.existsFile("wines.json"))  {
 		void[] buffer = std.file.read("wines.json");
 		string str_wines_json = buffer.to!string;
-		string  formdatajson_str = "[" ~ req.form.serializeToJson.to!string ~ "]";
+		string formdatajson_str;
+		formdatajson_str ~= "[{"; 
+		foreach (string key,string value;req.form) {
+			formdatajson_str ~= '"'~key~'"'~':'~'"'~value~'"'~','; // FIXME , at the end
+		}
+		formdatajson_str ~= "}]";
+		//string  formdatajson_str = "[" ~ req.form.serializeToJson.to!string ~ "]";
 		if (str_wines_json != "") {  
 			str_wines_json = (parseJson(str_wines_json) ~ parseJsonString(formdatajson_str)).to!string;
 		} else {

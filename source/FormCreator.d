@@ -41,11 +41,3 @@ auto PodToForm(Pod,string sep = "td ",string indent="\t")()
 	}
 	return result;
 }
-
-auto EnumToSelect(Enum,string sep ="td ",string indent="\t")()
-	if (is(Enum==enum)) 
-{
-
-
-	return select_string;
-}
